@@ -1,3 +1,5 @@
+package ru.netology.radio;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -113,6 +115,7 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test //граничное значение 0 для переключения +
 
     public void shouldSetNextStationFrom0() {
@@ -291,7 +294,7 @@ public class RadioTest {
         Radio radio = new Radio();
         radio.setCurrentVolume(0);
 
-        radio.decreaseVolume ();
+        radio.decreaseVolume();
 
         int expected = 0;
         int actual = radio.getCurrentVolume();
@@ -305,7 +308,7 @@ public class RadioTest {
         Radio radio = new Radio();
         radio.setCurrentVolume(1);
 
-        radio.decreaseVolume ();
+        radio.decreaseVolume();
 
         int expected = 0;
         int actual = radio.getCurrentVolume();
@@ -319,7 +322,7 @@ public class RadioTest {
         Radio radio = new Radio();
         radio.setCurrentVolume(9);
 
-        radio.decreaseVolume ();
+        radio.decreaseVolume();
 
         int expected = 8;
         int actual = radio.getCurrentVolume();
@@ -334,9 +337,29 @@ public class RadioTest {
 
         radio.setCurrentVolume(10);
 
-        radio.decreaseVolume ();
+        radio.decreaseVolume();
 
         int expected = 9;
+        int actual = radio.getCurrentVolume();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldSetVolumeMinus1() {
+        Radio radio = new Radio();
+        radio.setCurrentVolume(-1);
+        int expected = 0;
+        int actual = radio.getCurrentVolume();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldSetVolume11() {
+        Radio radio = new Radio();
+        radio.setCurrentVolume(11);
+        int expected = 0;
         int actual = radio.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
